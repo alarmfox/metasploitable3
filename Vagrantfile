@@ -21,6 +21,7 @@ Vagrant.configure("2") do |config|
     ub1404.vm.provider "libvirt" do |v|
       v.memory = 2048
       v.title = "Metasploitable3-ub1404" 
+      v.storage_pool_name = ENV['LIBVIRT_POOL'] || "default"
     end
 
   end
@@ -52,6 +53,7 @@ Vagrant.configure("2") do |config|
       v.hyperv_feature :name => 'vpindex', :state => 'on'
       v.clock_timer :name => 'hypervclock', :present => 'yes'
       v.title = "Metasploitable3-win2k8" 
+      v.storage_pool_name = ENV['LIBVIRT_POOL'] || "default"
     end
 
     # Configure Firewall to open up vulnerable services
