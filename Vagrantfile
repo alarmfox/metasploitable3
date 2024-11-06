@@ -18,6 +18,10 @@ Vagrant.configure("2") do |config|
       v.memory = 2048
     end
 
+    ub1404.vm.provider "libvirt" do |v|
+      v.memory = 2048
+      v.title = "Metasploitable3-ub1404" 
+    end
 
   end
 
